@@ -1,13 +1,16 @@
 import * as App from './pure-function';
+import * as R from 'ramda';
 
 const calc = new App.Calculator();
+
+// curry function
+const add = R.curry(calc.addPure);
 
 const appDiv: HTMLElement = document.getElementById('app');
 
 // Controlling code
-let val = calc.addPure(1, 1);
-val = calc.addPure(5, val);
-val = calc.addPure(7, val);
+let curriedFunction = add(10);
+let val = curriedFunction(5);
 
 // Pure Function Example
 appDiv.innerHTML = val as any;

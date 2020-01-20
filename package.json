@@ -6,6 +6,7 @@
     "start": "webpack-dev-server --open"
   },
   "dependencies": {
+    "ramda": "^0.26.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.8"
   },
