@@ -1,19 +1,10 @@
-import * as App from './pure-function';
-import * as R from 'ramda';
+import * as App from './observable';
 
-const calc = new App.Calculator();
-
-// curry function
-const add = R.curry(calc.addPure);
-
-// compose
-const result = R.compose(R.divide(150), R.multiply(5), add(10));
+const clicks$ = App.clickEvents$;
 
 const appDiv: HTMLElement = document.getElementById('app');
 
-// Controlling code
-let val = result(5);
-
-// Pure Function Example
-appDiv.innerHTML = val as any;
+clicks$.subscribe((val: any) => {
+    appDiv.innerHTML = `${val.screenX}, ${val.screenY}`;
+});
 
