@@ -1,10 +1,12 @@
-import * as App from './observable';
-
-const clicks$ = App.clickEvents$;
+import { clickEvents$, seconds$} from "./observable";
 
 const appDiv: HTMLElement = document.getElementById('app');
 
-clicks$.subscribe((val: any) => {
+seconds$.subscribe((val: any) => {
+    appDiv.innerHTML = val;
+});
+
+clickEvents$.subscribe((val: any) => {
     appDiv.innerHTML = `${val.screenX}, ${val.screenY}`;
 });
 
