@@ -6,11 +6,13 @@ const calc = new App.Calculator();
 // curry function
 const add = R.curry(calc.addPure);
 
+// compose
+const add10 = R.compose(add(10));
+
 const appDiv: HTMLElement = document.getElementById('app');
 
 // Controlling code
-let curriedFunction = add(10);
-let val = curriedFunction(5);
+let val = add10(15);
 
 // Pure Function Example
 appDiv.innerHTML = val as any;
