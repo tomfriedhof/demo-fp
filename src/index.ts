@@ -7,12 +7,12 @@ const calc = new App.Calculator();
 const add = R.curry(calc.addPure);
 
 // compose
-const add10 = R.compose(add(10));
+const result = R.compose(R.divide(150), R.multiply(5), add(10));
 
 const appDiv: HTMLElement = document.getElementById('app');
 
 // Controlling code
-let val = add10(15);
+let val = result(5);
 
 // Pure Function Example
 appDiv.innerHTML = val as any;
